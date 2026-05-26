@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>ALTER</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+  body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(255,255,255,0.05), transparent 30%),
+    linear-gradient(to bottom, #000000, #111111);
+  color:white;
+  overflow-x:hidden;
+}
+.wave{
+  position:absolute;
+  width:600px;
+  height:600px;
+  background:rgba(255,255,255,0.03);
+  border-radius:50%;
+  filter:blur(80px);
+  z-index:0;
+}
+
+.wave1{
+  top:-200px;
+  left:-200px;
+}
+
+.wave2{
+  bottom:-200px;
+  right:-200px;
+}
+    section{
+      padding:120px 10%;
+    }
+
+    h1,h2,h3{
+      font-weight:900;
+    }
+
+    p{
+      line-height:1.8;
+      color:#444;
+    }
+
+    /* HERO */
+
+    .hero{
+      height:100vh;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      overflow:hidden;
+      background:black;
+    }
+
+    .hero video{
+      position:absolute;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0.25;
+    }
+
+    .overlay{
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.5);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      color:white;
+      animation:fade 2s ease;
+    }
+
+    .logo{
+      width:170px;
+      margin-bottom:30px;
+      animation:float 5s infinite ease-in-out;
+    }
+
+    .hero h1{
+      font-size:90px;
+      letter-spacing:15px;
+    }
+
+    .hero p{
+      color:white;
+      font-size:24px;
+      margin-top:20px;
+      font-style:italic;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:40px;
+      padding:16px 35px;
+      border-radius:40px;
+      background:white;
+      color:black;
+      text-decoration:none;
+      font-weight:700;
+      transition:0.4s;
+    }
+
+    .btn:hover{
+      transform:scale(1.05);
+    }
+
+    /* TITLES */
+
+    .subtitle{
+      text-transform:uppercase;
+      letter-spacing:4px;
+      color:#888;
+      margin-bottom:15px;
+      font-size:13px;
+    }
+
+    .title{
+      font-size:55px;
+      margin-bottom:30px;
+      color:white;
+    }
+
+    /* ABOUT */
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:70px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:30px;
+      box-shadow:0 15px 40px rgba(0,0,0,0.1);
+      transition:1s;
+    }
+
+    .about img:hover{
+      transform:scale(1.03);
+    }
+
+    /* CARDS */
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+      margin-top:50px;
+    }
+
+   .card{
+  background:#151515;
+      border-radius:30px;
+      padding:50px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      transition:0.5s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .emoji{
+      font-size:40px;
+      margin-bottom:20px;
+    }
+
+    /* GALERIA */
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:25px;
+      margin-top:60px;
+    }
+
+  .gallery img{
+  width:100%;
+  height:400px;
+  object-fit:cover;
+}
+
+    .gallery img:hover{
+      transform:scale(1.03);
+    }
+
+    /* CARROSSEL */
+
+    .carousel{
+      margin-top:60px;
+      overflow:hidden;
+      border-radius:30px;
+    }
+
+  .carousel img{
+  width:100%;
+  height:600px;
+  object-fit:cover;
+  object-position:center;
+  border-radius:30px;
+  display:block;
+}
+
+    /* VERSE */
+
+   .verse{
+  background:#151515;
+  color:white;
+  padding:50px;
+  border-radius:30px;
+  margin-top:40px;
+  font-size:24px;
+  line-height:1.8;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+    /* MAP */
+
+    iframe{
+      width:100%;
+      border:none;
+      border-radius:30px;
+      margin-top:40px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:black;
+      color:white;
+      text-align:center;
+      padding:70px 10%;
+      margin-top:80px;
+    }
+
+   p{
+  color:#d1d1d1;
+}
+
+    footer img{
+      width:70px;
+      margin-bottom:20px;
+    }
+
+    /* ANIMATIONS */
+
+    @keyframes fade{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes float{
+      0%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(-12px);
+      }
+
+      100%{
+        transform:translateY(0px);
+      }
+    }
+
+    /* RESPONSIVO */
+
+    @media(max-width:900px){
+
+      section{
+        padding:90px 7%;
+      }
+
+      .hero h1{
+        font-size:55px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .about{
+        grid-template-columns:1fr;
+      }
+.title{
+  color:white;
+}
+      .carousel img{
+        height:350px;
+      }
+
+    }
+/* EFEITO PREMIUM */
+
+.card,
+.verse,
+.about img,
+.carousel img,
+.gallery img{
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.card:hover{
+  box-shadow:
+  0 0 30px rgba(255,255,255,0.06),
+  0 0 80px rgba(255,255,255,0.03);
+}
+
+.hero h1{
+  text-shadow:
+  0 0 15px rgba(255,255,255,0.2),
+  0 0 40px rgba(255,255,255,0.08);
+}
+
+.btn{
+  box-shadow:
+  0 0 20px rgba(255,255,255,0.08);
+}
+
+.btn:hover{
+  box-shadow:
+  0 0 35px rgba(255,255,255,0.2);
+}
+
+/* LINHAS PREMIUM */
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:20px;
+  border:1px solid rgba(255,255,255,0.05);
+  pointer-events:none;
+}
+  </style>
+
+</head>
+
+<body>
+<div class="wave wave1"></div>
+<div class="wave wave2"></div>
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <video autoplay muted loop>
+      <source src="https://cdn.coverr.co/videos/coverr-worship-concert-1560087993932?download=1080p" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+
+      <img src="logo.jpeg" class="logo">
+
+      <h1>
+  ALTER
+</h1>
+
+<div class=.hero-line{
+  width:200px;
+  height:2px;
+  margin:25px auto;
+  background:linear-gradient(to right, transparent, white, transparent);
+}@media(max-width:600px){
+
+  .hero h1{
+    font-size:42px;
+    letter-spacing:6px;
+  }
+
+  .title{
+    font-size:36px;
+  }
+
+  .card{
+    padding:35px;
+  }
+
+  .verse{
+    font-size:18px;
+  }
+
+}
+      <p>“O evangelho é o outro.”</p>
+
+      <a href="#sobre" class="btn">
+        Conheça
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- SOBRE -->
+
+  <section id="sobre">
+
+    <div class="about">
+<img src="foto7.jpg">
+
+      <div>
+
+        <div class="subtitle">
+          Quem Somos
+        </div>
+
+        <h2 class="title">
+          Uma geração apaixonada por Jesus
+        </h2>
+
+        <p>
+          ALTER nasce do princípio de que o Evangelho de Cristo sempre nos conduz ao outro.
+        </p>
+
+        <br>
+
+        <p>
+          Nosso nome vem do latim e significa “O Outro”, refletindo o chamado de viver além de nós mesmos.
+        </p>
+
+        <br>
+
+        <p>
+          Somos uma comunidade jovem apaixonada por almas e pela presença de Deus.
+        </p>
+
+        <div class="verse">
+
+          “Não olhem apenas para os seus próprios interesses, mas também para os interesses dos outros.”
+
+          <br><br>
+
+          Filipenses 2:4
+
+        </div>
+
+      </div>
+
+     
+    </div>
+
+  </section>
+
+  <!-- ENCONTRE SUA COMUNIDADE -->
+
+  <section>
+
+    <div class="subtitle">
+      ALTER
+    </div>
+
+    <h2 class="title">
+      Faça parte ✨
+    </h2>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="emoji">🔥</div>
+
+        <h3>
+          Culto ALTER
+        </h3>
+
+        <br>
+
+        <p>
+          Todos os sábados às 19:30
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <div class="emoji">🤍</div>
+
+        <h3>
+          Célula
+        </h3>
+
+        <br>
+
+        <p>
+          Todas as quartas às 20:00
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CARROSSEL -->
+
+  <section>
+
+    <div class="subtitle">
+      ALTER MOMENTS
+    </div>
+
+    <h2 class="title">
+      Vivendo o Evangelho
+    </h2>
+
+   <div class="carousel">
+
+   <img src="foto1.jpg">
+    
+</div>
+
+    <div class="gallery">
+
+   <img src="foto5.jpg">
+<img src="foto2.jpg">
+<img src="foto3.jpg">
+
+    
+</div>
+
+  </section>
+
+  <!-- LIDERANÇA -->
+
+  <section>
+
+    <div class="subtitle">
+      ALTER
+    </div>
+
+    <h2 class="title">
+      Liderança
+    </h2>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <h3>
+          André Ribeiro
+        </h3>
+
+        <br>
+
+        <p>
+          Líder ALTER
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Julia Ribeiro
+        </h3>
+
+        <br>
+
+        <p>
+          Líder ALTER
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- DEVOCIONAL -->
+
+  <section>
+
+    <div class="subtitle">
+      Devocional Diário
+    </div>
+
+    <h2 class="title">
+      Palavra para hoje
+    </h2>
+
+    <div class="verse" id="verse"></div>
+
+    <a
+      href="https://www.instagram.com/alter_oficial?igsh=MW8wZ3pqeTdhank4eA=="
+      target="_blank"
+      class="btn">
+
+      Instagram ALTER
+
+    </a>
+
+  </section>
+
+  <!-- SPOTIFY -->
+
+  <section>
+
+    <div class="subtitle">
+      Playlist ALTER
+    </div>
+
+    <h2 class="title">
+      Worship & Presença
+    </h2>
+
+    <iframe
+      src="https://open.spotify.com/embed/playlist/4vUeZefwZTUAP5gYsMqEP8?utm_source=generator"
+      height="352">
+    </iframe>
+
+  </section>
+
+  <!-- MAPA -->
+
+  <section>
+
+    <div class="subtitle">
+      Localização
+    </div>
+
+    <h2 class="title">
+      IEQ ST. ODILA
+    </h2>
+
+    <p>
+      Avenida Engenheiro Augusto Figueiredo
+    </p>
+
+    <iframe
+      src="https://maps.google.com/maps?q=Avenida%20Engenheiro%20Augusto%20Figueiredo&t=&z=13&ie=UTF8&iwloc=&output=embed"
+      height="400">
+    </iframe>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <img src="logo.png">
+
+    <h2>
+      ALTER
+    </h2>
+
+    <br>
+
+    <p>
+      O evangelho é o outro.
+    </p>
+
+  </footer>
+
+  <script>
+
+    const verses = [
+
+      '“Tudo posso naquele que me fortalece.” Filipenses 4:13',
+
+      '“Busquem primeiro o Reino de Deus.” Mateus 6:33',
+
+      '“Porque Deus amou o mundo de tal maneira...” João 3:16',
+
+      '“Não olhem apenas para os seus próprios interesses.” Filipenses 2:4'
+
+    ]
+
+    const today = new Date().getDate()
+
+    document.getElementById("verse").innerHTML =
+      verses[today % verses.length]
+
+  </script>
+
+</body>
+
+</html>
